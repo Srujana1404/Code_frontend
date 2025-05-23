@@ -8,11 +8,11 @@ const { SERVER_IP } = process.env;
 export default defineConfig({
   plugins: [react()],
   preview: {
-    port: 6701,
+    port: 9058,
   },
   server: {
     host: true,
-    port: 6701,
+    port: 9058,
     proxy: {
       '/api': {
         target: `http://${SERVER_IP}:1314/`,

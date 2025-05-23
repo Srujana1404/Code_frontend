@@ -1,33 +1,31 @@
-import { useState } from "react";
-import Axios from "axios";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Contest from "./Pages/Contest/Contest";
+import Upload from "./Pages/Upload/Upload";
+import MCQs_questions from "./Pages/MCQs_questions/MCQs_questions";
+import ContestOver from "./Pages/ContestOver/ContestOver";
 
-export default function App() {
-  const [message, setMessage] = useState<string>("");
+const router = createBrowserRouter([
+  {
+    path: "/contests/:id",
+    element: <Contest />,
+  },
+  {
+    path: "/contests/:id/mcqs",
+    element: <MCQs_questions />,
+  },
+  {
+    path: "/upload",
+    element: <Upload />,
+  },
+  {
+    path: "/contest-over",
+    element: <ContestOver />,
+  }
 
-  const fetchData = async () => {
-    try {
-      const response = await Axios.get<{ message: string }>(`/api/submit`);
-      setMessage(response.data.message); // Extract the 'message' field
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setMessage("Failed to fetch data");
-    }
-  };
+]);
 
-  return (
-    <div className="flex flex-col items-center gap-4 p-6">
-      <button
-        onClick={fetchData}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Click me
-      </button>
-      
-      {message && (
-        <div className="bg-gray-100 border border-gray-300 p-4 rounded shadow-md">
-          {message}
-        </div>
-      )}
-    </div>
-  );
+function App() {
+  return <RouterProvider router={router} />;
 }
+
+export default App;

@@ -1,0 +1,89 @@
+:root {
+  --purple-dark: #6A1B9A;
+  --purple-light: #f3e5f5;
+  --blue-light: #e0f7fa;
+  --pink-accent: #ff4081;
+  --pink-hover: #f50057;
+  --white: #ffffff;
+  --shadow-normal: 0 12px 24px rgba(0, 0, 0, 0.2);
+  --shadow-hover: 0 20px 36px rgba(0, 0, 0, 0.3);
+}
+
+.contest-card {
+  background-color: var(--purple-dark);
+  color: var(--white);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-normal);
+  width: 80%;
+  max-width: 1000px;
+  margin: 20px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: justify;
+  text-justify: inter-word;
+  overflow: hidden;
+}
+
+/* .contest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+} */
+
+.contest-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contest-description {
+  font-size: 1.125rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+  color: var(--purple-light);
+}
+
+.contest-rounds,
+.contest-status,
+.contest-time {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--blue-light);
+}
+
+.contest-rounds strong,
+.contest-status strong {
+  color: var(--white);
+}
+
+button {
+  background-color: var(--pink-accent);
+  color: var(--white);
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--pink-hover);
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #bdbdbd;
+  color: #f5f5f5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+button:disabled:hover {
+  background-color: #bdbdbd;
+  color: #f5f5f5;
+  transform: none;
+}

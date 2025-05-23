@@ -1,0 +1,46 @@
+.timer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.timer-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+/* Default purple (active, more than 5 mins) */
+.timer-circle.active {
+  background: linear-gradient(to right, #6b46c1, #805ad5);
+}
+
+/* Red pulsing alert (less than or equal to 5 mins) */
+.timer-circle.urgent {
+  background: linear-gradient(to right, #e53e3e, #c53030);
+  animation: fadePulse 1.5s infinite;
+}
+
+@keyframes fadePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+.time-text {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}

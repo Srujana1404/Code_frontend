@@ -1,0 +1,259 @@
+/* Page background and layout */
+.mcqquiz-bg {
+  min-height: 100vh;
+  background: #f3f4f6;
+  padding: 2rem 1rem;
+}
+.mcqquiz-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Quiz header */
+.mcqquiz-header {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.mcqquiz-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+.mcqquiz-progress {
+  background: #f5f3ff;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mcqquiz-progress .icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: #710bd7;
+  margin-right: 0.5rem;
+}
+.mcqquiz-progress-text {
+  font-size: 0.95rem;
+  color: #7416cc;
+}
+.mcqquiz-progress-text .count {
+  font-weight: 600;
+}
+
+/* Main grid */
+.mcqquiz-main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .mcqquiz-main-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Question card area */
+.mcqquiz-question-card {
+  position: relative; /* ✅ Added for timer positioning */
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  padding: 1.5rem;
+  margin-bottom: 0;
+}
+
+/* Navigation and sidebar */
+.mcqquiz-sidebar {
+  order: -1;
+}
+@media (min-width: 768px) {
+  .mcqquiz-sidebar {
+    order: 2;
+  }
+}
+
+/* Timer */
+.mcqquiz-timer {
+  position: fixed;       /* Fixed on screen */
+  top: 1rem;             /* Distance from top */
+  right: 1rem;           /* Distance from right */
+  background: #fcf3ff;   /* Light violet background */
+  color: #bd0f8c;        /* Purple text */
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(17, 13, 13, 0.1);
+  z-index: 1000;
+  user-select: none;
+  white-space: nowrap;   /* Prevent line wrap */
+  max-width: 90vw;       /* Responsive max width */
+  text-align: center;
+  cursor: default;
+  transition: font-size 0.3s ease;
+}
+
+/* Smaller font on narrow screens */
+@media (max-width: 480px) {
+  .mcqquiz-timer {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+
+
+/* Navigation/Submit box */
+.mcqquiz-submit-box {
+  margin-top: 1.5rem;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  padding: 1.5rem;
+}
+.mcqquiz-submit-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+.mcqquiz-submit-desc {
+  color: #4b5563;
+  margin-bottom: 1rem;
+  font-size: 0.98rem;
+}
+
+/* Buttons */
+.mcqquiz-btn {
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.mcqquiz-btn-primary {
+  background: #7c3aed;
+  color: #fff;
+}
+.mcqquiz-btn-primary:hover {
+  background: #6d28d9;
+}
+.mcqquiz-btn-secondary {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+.mcqquiz-btn-secondary:hover {
+  background: #d1d5db;
+}
+.mcqquiz-btn-disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+.mcqquiz-btn svg {
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-left: 0.375rem;
+  margin-right: 0.375rem;
+}
+
+/* Loading and empty states */
+.mcqquiz-loading,
+.mcqquiz-empty {
+  min-height: 100vh;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mcqquiz-loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: pulse 1.5s infinite;
+}
+.mcqquiz-loading-circle {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 9999px;
+  background: #d1aaff;
+  margin-bottom: 1rem;
+}
+.mcqquiz-loading-bar {
+  height: 1.25rem;
+  width: 8rem;
+  background: #d1aaff;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.mcqquiz-loading-bar-small {
+  height: 1rem;
+  width: 6rem;
+  background: #ede9fe;
+  border-radius: 0.5rem;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.mcqquiz-empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+.mcqquiz-empty-icon {
+  height: 4rem;
+  width: 4rem;
+  color: #7c3aed;
+  margin-bottom: 1rem;
+}
+.mcqquiz-empty-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+.mcqquiz-empty-desc {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+.mcqquiz-empty-btn {
+  padding: 0.75rem 2rem;
+  background: #7c3aed;
+  color: #fff;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.mcqquiz-empty-btn:hover {
+  background: #6d28d9;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .mcqquiz-header,
+  .mcqquiz-question-card,
+  .mcqquiz-submit-box {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+  .mcqquiz-title {
+    font-size: 1.25rem;
+  }
+}

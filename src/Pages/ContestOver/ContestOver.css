@@ -1,0 +1,104 @@
+.contestover-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3e8ff 0%, #ede9fe 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contestover-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(106,27,154,0.15);
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeInUp 0.8s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.contestover-animation {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.contestover-cross {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+}
+
+.contestover-bar {
+  position: absolute;
+  width: 64px;
+  height: 8px;
+  background: #e11d48;
+  border-radius: 4px;
+  top: 28px;
+  left: 0;
+  opacity: 0.85;
+  animation: crossPop 0.7s cubic-bezier(.23,1.01,.32,1) both;
+}
+.contestover-bar1 {
+  transform: rotate(45deg) scaleX(0);
+  animation-delay: 0.2s;
+}
+.contestover-bar2 {
+  transform: rotate(-45deg) scaleX(0);
+  animation-delay: 0.4s;
+}
+
+@keyframes crossPop {
+  to { transform: rotate(45deg) scaleX(1);}
+}
+.contestover-bar2 {
+  animation-name: crossPop2;
+}
+@keyframes crossPop2 {
+  to { transform: rotate(-45deg) scaleX(1);}
+}
+
+.contestover-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.contestover-desc {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.contestover-btn {
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(124,60,237,0.08);
+}
+.contestover-btn:hover {
+  background: #6d28d9;
+}
+
+@media (max-width: 500px) {
+  .contestover-card {
+    padding: 1.5rem 0.5rem;
+  }
+  .contestover-title {
+    font-size: 1.3rem;
+  }
+}
