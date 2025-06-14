@@ -1,0 +1,54 @@
+/* Additional specific styles for warning modal components */
+.warning-modal-overlay {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.warning-modal * {
+  box-sizing: border-box;
+}
+
+/* Prevent text selection in warning modal */
+.warning-modal {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Focus styles */
+.warning-close-btn:focus,
+.warning-understand-btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .warning-modal,
+  .warning-modal-overlay,
+  .warning-icon-container,
+  .warning-final,
+  .countdown-circle::before {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .warning-modal {
+    border: 3px solid;
+  }
+  
+  .warning-message {
+    border: 2px solid;
+  }
+  
+  .warning-consequences {
+    border: 2px solid;
+  }
+}
